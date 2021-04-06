@@ -1,0 +1,27 @@
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$hg_branch\
+$package\
+$cmake\
+$nix_shell\
+$env_var\
+$custom\
+$cmd_duration\
+$line_break\
+$jobs\
+$time\
+$status\
+$character"""
+
+[character]
+#success_symbol = "[➤](bold green)"
+success_symbol = "[▶](bold green)"
+error_symbol = "[▶](bold red)"
+[rust]
+    symbol = "⚙ "
