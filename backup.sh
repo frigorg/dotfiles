@@ -1,7 +1,5 @@
 #!/bin/sh
 
-message_dotfiles="**Make sure to write on bashrc all necessary configurations to launch starship.**\n**Vim needs vim-plug to runs properly this configuration file.**"
-
 function bkp_dotfiles(){
     [ -d "$HOME/.config/awessome" ] && cp -uvr "$HOME/.config/awesome" .
     [ -d "$HOME/.config/alacritty" ] && cp -uvr "$HOME/.config/alacritty" .
@@ -30,4 +28,3 @@ fi
 
 unset out
 unset bkp_dotfiles
-unset message_dotfiles
