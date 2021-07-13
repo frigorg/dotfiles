@@ -1,0 +1,18 @@
+{
+    "telemetry.enableCrashReporter": false,
+    "telemetry.enableTelemetry": false,
+    "Lua.telemetry.enable": false,
+    "editor.semanticHighlighting.enabled": true,
+    "vim.highlightedyank.enable": true,
+    "vim.smartRelativeLine": true,
+    "vim.ignorecase": true,
+    "vim.hlsearch": true,
+    "terminal.integrated.localEchoExcludePrograms": [
+        "vim",
+        "tmux"
+    ],
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
+    "workbench.startupEditor": "none"
+}
