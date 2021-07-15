@@ -14,6 +14,9 @@ PS1='[\u@\h \W]\$ '
 #Link to my aliases
 source ~/.bash_aliases
 
+#link to my fff config file
+source ~/.config/fff.sh
+
 #Make Starship displays a nice window title
 function set_win_title(){
     echo -ne "\033]0;${USER}@${HOSTNAME}:${PWD}\007"

@@ -17,6 +17,7 @@ function bkp_dotfiles(){
     cp -uvr "$HOME/.vim/colors" "./vim/colors"
     mkdir -p "etc/X11"
     cp -uvr "/etc/X11/xorg.conf.d" "./etc/X11"
+    [ -f "$HOME/.config/fff.sh" ] && { mkdir -p "./fff"; cp -uv "$HOME/.config/fff.sh" "./fff"; }
 }
 
 read -p 'Proceed with the backup?(y/n) ' out
