@@ -4,6 +4,9 @@ set number
 set numberwidth=3
 map gn :set relativenumber!<CR>
 
+" buscas em caixa baixa são insensitive case
+set smartcase
+
 " Mostra o nome do arquivo no título
 set title
 
@@ -24,6 +27,7 @@ map <F7> "c
 map <F8> "d
 map <F9> "e
 
+" plugin
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 

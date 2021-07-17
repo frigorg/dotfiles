@@ -12,7 +12,14 @@
         "tmux"
     ],
     "workbench.editorAssociations": {
-        "*.ipynb": "jupyter.notebook.ipynb"
+        "*.ipynb": "jupyter-notebook"
     },
-    "workbench.startupEditor": "none"
+    "workbench.startupEditor": "none",
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+    "workbench.editor.restoreViewState": false,
+    "editor.fontSize": 18,
+    "editor.fontFamily": "'JetBrains Mono','FiraCode','Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'"
 }
