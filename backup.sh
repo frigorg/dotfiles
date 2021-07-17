@@ -1,6 +1,6 @@
 #!/bin/sh
 
-function bkp_dotfiles(){
+bkp_dotfiles(){
     [ -d "$HOME/.config/awessome" ] && cp -uvr "$HOME/.config/awesome" .
     [ -d "$HOME/.config/alacritty" ] && cp -uvr "$HOME/.config/alacritty" .
     [ -d "$HOME/.config/bspwm" ] && cp -uvr "$HOME/.config/bspwm" .
@@ -12,19 +12,20 @@ function bkp_dotfiles(){
     [ -f "$HOME/.bash_aliases" ] && cp -uvr "$HOME/.bash_aliases" "./bash"
     [ -f "$HOME/.bashrc" ] && cp -uvr "$HOME/.bashrc" "./bash"
     mkdir -p vim
-    [ -f "$HOME/.vimrc" ] && cp -uvr "$HOME/.vimrc" "./bash"
+    [ -f "$HOME/.vimrc" ] && cp -uvr "$HOME/.vimrc" "./vim"
     mkdir -p vim/colors
-    cp -uvr "$HOME/.vim/colors" "./vim/colors"
+    cp -uvr "$HOME/.vim/colors" "./vim"
     mkdir -p "etc/X11"
     cp -uvr "/etc/X11/xorg.conf.d" "./etc/X11"
     [ -f "$HOME/.config/fff.sh" ] && { mkdir -p "./fff"; cp -uv "$HOME/.config/fff.sh" "./fff"; }
+    [ -d "$HOME/.config/nnn" ] && cp -uvr "$HOME/.config/nnn" .
 }
 
 read -p 'Proceed with the backup?(y/n) ' out
 if [ $out == 'y' ]
 then  
     bkp_dotfiles 
-    printf "**Make sure to write on bashrc all necessary configurations to launch starship.**\n**Vim needs vim-plug to runs properly this configuration file.**"
+    printf "**Vim needs vim-plug to runs properly its configuration file.**"
 fi
 
 unset out
