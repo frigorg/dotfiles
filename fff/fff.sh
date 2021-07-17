@@ -2,6 +2,11 @@
 # Include `source ~/.config/fff.sh` to the .bashrc file
 #
 
+function ff() {
+    fff "$@"
+    cd "$(cat "${XDG_CACHE_HOME:=${HOME}/.cache}/fff/.fff_d")"
+}
+
 export FFF_FAV1=~/Documents/UFRN
 # export FFF_FAV2=/
 # export FFF_FAV3=
