@@ -17,6 +17,9 @@ source ~/.bash_aliases
 #link to my fff config file
 source ~/.config/fff.sh
 
+#link to my nnn config file
+source ~/.config/nnn/nnn.sh
+
 #Make Starship displays a nice window title
 function set_win_title(){
     echo -ne "\033]0;${USER}@${HOSTNAME}:${PWD}\007"

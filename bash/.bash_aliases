@@ -7,7 +7,6 @@ alias path="echo $PATH | sed 's/:/\n/g'"
 alias rm="rm -i"
 alias pm="pulsemixer"
 alias weka="~/.weka/weka-3-8-5/weka.sh &"
-alias rg=". ranger"
 
 #Aliases usados com simple_mtpfs
 alias alist="simple-mtpfs -l"
@@ -18,10 +17,6 @@ alias aumount="fusermount -u"
 #Redshift
 alias reds="redshift -l -21.595414323543466:-46.88868010008186"
 
-function ff() {
-    fff "$@"
-    cd "$(cat "${XDG_CACHE_HOME:=${HOME}/.cache}/fff/.fff_d")"
-}
 
 function jupylab() {
     jupyter lab --browser=firefox
