@@ -1,4 +1,18 @@
 {
+    "vim.normalModeKeyBindings": [
+        {
+            "before": ["u"],
+            "commands": [
+                "undo",
+            ]
+        },
+        {
+            "before": ["<C-r>"],
+            "commands": [
+                "redo",
+            ]
+        }
+    ],
     "telemetry.enableCrashReporter": false,
     "telemetry.enableTelemetry": false,
     "Lua.telemetry.enable": false,
@@ -22,4 +36,5 @@
     "workbench.editor.restoreViewState": false,
     "editor.fontSize": 18,
     "editor.fontFamily": "'JetBrains Mono','FiraCode','Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'"
+
 }
