@@ -12,11 +12,11 @@ local theme = {}
 
 theme.titlebars_enabled = false
 
-theme.font          = "sans 8"
+theme.font          = "Fira code bold 8"
 
-theme.bg_normal     = "#222222"
+theme.bg_normal     = "#2B393B"
 theme.bg_focus      = "#535d6c"
-theme.bg_urgent     = "#ff0000"
+theme.bg_urgent     = "#B65311"
 theme.bg_minimize   = "#444444"
 theme.bg_systray    = theme.bg_normal
 
@@ -25,15 +25,25 @@ theme.fg_focus      = "#ffffff"
 theme.fg_urgent     = "#ffffff"
 theme.fg_minimize   = "#ffffff"
 
+theme.border_normal = "#2B393B"
+theme.border_focus  = "#A5BE7D"
+theme.border_marked = "#B65311"
+
+theme.bg_widget = "#4E6A6A"
+
 theme.useless_gap   = dpi(2)
 theme.border_width  = dpi(2)
 theme.screen_padding = { top = dpi(0),
                          right = dpi(0),
                          bottom = dpi(0),
                          left = dpi(0),}
-theme.border_normal = "#000000"
-theme.border_focus  = "#535d6c"
-theme.border_marked = "#91231c"
+
+theme.wibar_height = dpi(25)
+theme.wibar_opacity = 1
+
+
+
+
 
 -- There are other variable sets
 -- overriding the default one when
@@ -69,11 +79,6 @@ theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
 theme.menu_submenu_icon = themes_path.."default/submenu.png"
 theme.menu_height = dpi(15)
 theme.menu_width  = dpi(100)
-
--- You can add as many variables as
--- you wish and access them by using
--- beautiful.variable in your rc.lua
---theme.bg_widget = "#cc0000"
 
 theme.wallpaper = themes_path.."custon/background.png"
 

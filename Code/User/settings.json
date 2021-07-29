@@ -35,6 +35,7 @@
     },
     "workbench.editor.restoreViewState": false,
     "editor.fontSize": 18,
-    "editor.fontFamily": "'JetBrains Mono','FiraCode','Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'"
+    "editor.fontFamily": "'JetBrains Mono','FiraCode','Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+    "vim.useSystemClipboard": true
 
 }

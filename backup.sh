@@ -1,7 +1,7 @@
 #!/bin/sh
 
 bkp_dotfiles(){
-    [ -d "$HOME/.config/awessome" ] && cp -uvr "$HOME/.config/awesome" .
+    [ -d "$HOME/.config/awesome" ] && cp -uvr "$HOME/.config/awesome" .
     [ -d "$HOME/.config/alacritty" ] && cp -uvr "$HOME/.config/alacritty" .
     [ -d "$HOME/.config/bspwm" ] && cp -uvr "$HOME/.config/bspwm" .
     [ -d "$HOME/.config/sxhkd" ] && cp -uvr "$HOME/.config/sxhkd" .

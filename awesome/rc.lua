@@ -1,25 +1,24 @@
--- If LuaRocks is installed, make sure that packages installed through it are
--- found (e.g. lgi). If LuaRocks is not installed, do nothing.
 pcall(require, "luarocks.loader")
 
-
--- Standard awesome library
 local gears = require("gears")
 local awful = require("awful")
 require("awful.autofocus")
--- Widget and layout library
 local wibox = require("wibox")
--- Theme handling library
 local beautiful = require("beautiful")
--- Notification library
 local naughty = require("naughty")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
--- Enable hotkeys help widget for VIM and other apps
--- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 local create_rules = require("rules").create
 local keys = require("keys")
+
+-- Widgets
+local logout_menu_widget = require("widgets/logout-menu-widget.logout-menu")
+-- local volume_widget = require('widgets/volume-widget.volume')
+
+local calendar_widget = require("widgets/calendar-widget.calendar")
+local cw =
+    calendar_widget({theme = 'dark', placement = 'top_right', radius = 8})
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -49,6 +48,7 @@ do
     end)
 end
 -- }}}
+
 -- {{{ Variable definitions
 
 -- screen padding (uses 0 for each side when not defined)
@@ -104,44 +104,40 @@ awful.layout.layouts = {
 -- Keyboard map indicator and switcher
 mykeyboardlayout = awful.widget.keyboardlayout()
 
+-- }}} 
+
 -- {{{ Rules
 awful.rules.rules = create_rules(clientkeys, clientbuttons)
-
 -- }}} 
 
 -- {{{ Wibar
--- Create a textclock widget
-mytextclock = wibox.widget.textclock()
 
 -- Create a wibox for each screen and add it
 -- Mouse keybindings for taglist widget
 local taglist_buttons = gears.table.join(
-        awful.button({}, 1, function(t) t:view_only() end),
-        awful.button({modkey}, 1, function(t)
-            if client.focus then 
-                client.focus:move_to_tag(t) 
-            end
-            end), 
-        awful.button({}, 3, awful.tag.viewtoggle),
-        awful.button({modkey}, 3, function(t)
-            if client.focus then 
-                client.focus:toggle_tag(t) 
-            end
-            end), 
-        awful.button({}, 4, function(t) awful.tag.viewnext(t.screen) end),
-        awful.button({}, 5, function(t) awful.tag.viewprev(t.screen) end))
+                            awful.button({}, 1, function(t) t:view_only() end),
+                            awful.button({modkey}, 1, function(t)
+        if client.focus then client.focus:move_to_tag(t) end
+    end), awful.button({}, 3, awful.tag.viewtoggle),
+                            awful.button({modkey}, 3, function(t)
+        if client.focus then client.focus:toggle_tag(t) end
+    end), awful.button({}, 4, function(t) awful.tag.viewnext(t.screen) end),
+                            awful.button({}, 5, function(t)
+        awful.tag.viewprev(t.screen)
+    end))
 
 -- Mouse keybindings for tasklist (app list on taskbar) widget
 local tasklist_buttons = gears.table.join(
-        awful.button({}, 1, function(c)
-            if c == client.focus then
-                c.minimized = true
-            else
-                c:emit_signal("request::activate", "tasklist", {raise = true})
-            end
-            end), 
-        awful.button({}, 4, function() awful.client.focus.byidx(1) end),
-        awful.button({}, 5, function() awful.client.focus.byidx(-1) end))
+                             awful.button({}, 1, function(c)
+        if c == client.focus then
+            c.minimized = true
+        else
+            c:emit_signal("request::activate", "tasklist", {raise = true})
+        end
+    end), awful.button({}, 4, function() awful.client.focus.byidx(1) end),
+                             awful.button({}, 5, function()
+        awful.client.focus.byidx(-1)
+    end))
 
 local function set_wallpaper(s)
     -- Wallpaper
@@ -155,6 +151,32 @@ end
 
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 screen.connect_signal("property::geometry", set_wallpaper)
+
+-- Create a textclock widget
+mytextclock = wibox.widget {
+    {
+        {
+            {widget = wibox.widget.textclock("%R"), align = "center"},
+            left = 10,
+            right = 10,
+            top = 3,
+            bottom = 3,
+            widget = wibox.container.margin
+        },
+        shape = function(cr, width, height)
+            gears.shape.rounded_rect(cr, width, height, 10)
+        end,
+        bg = beautiful.bg_widget,
+        widget = wibox.container.background
+    },
+    layout = wibox.layout.fixed.horizontal
+}
+mytextclock:connect_signal("button::press", function(_, _, _, button)
+    if button == 1 then cw.toggle() end
+end)
+
+witeste = wibox.widget {
+}
 
 -- callback function for each screen creation
 awful.screen.connect_for_each_screen(function(s)
@@ -207,16 +229,23 @@ awful.screen.connect_for_each_screen(function(s)
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
-            mylauncher,
             s.mytaglist,
             s.mypromptbox
         },
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            mykeyboardlayout,
             wibox.widget.systray(),
+            -- volume_widget{
+            --     widget_type = 'arc'
+            -- },
             mytextclock,
+            witeste,
+            logout_menu_widget {
+                onlock = function()
+                    awful.spawn.with_shell('i3lock -ub -c 000000')
+                end
+            },
             s.mylayoutbox
         }
     }

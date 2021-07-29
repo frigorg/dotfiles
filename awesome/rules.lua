@@ -16,7 +16,8 @@ function rules.create(clientkeys, clientbuttons)
                 raise = true,
                 screen = awful.screen.preferred,
                 placement = awful.placement.no_overlap +
-                    awful.placement.no_offscreen,
+                    awful.placement.no_offscreen +
+                    awful.placement.centered,
                 keys = clientkeys,
                 buttons = clientbuttons,
                 gap_single_client = false
@@ -32,7 +33,7 @@ function rules.create(clientkeys, clientbuttons)
                 class = {
                     "Arandr", "Blueman-manager", "Gpick", "Kruler",
                     "MessageWin", -- kalarm.
-                    "Sxiv", "Tor Browser", -- Needs a fixed window size to avoid fingerprinting by screen size.
+                    "Tor Browser", -- Needs a fixed window size to avoid fingerprinting by screen size.
                     "Wpa_gui", "veromix", "xtightvncviewer"
                 },
 

@@ -140,10 +140,15 @@ end
 function keys.globalkeys(programs)
     local out = gears.table.join( -- {{{ View
     -- Screen related
-    awful.key({modkey}, "F12", function()
+    awful.key({modkey}, "F11", function()
         awful.spawn.with_shell(
-            "maim -us ~/Pictures/Screenshot/$(date +%d-%m-%y_%H-%M-%S-%N).png",
+            "maim -us | xclip -selection clipboard -t image/png",
             false)
+    end, {description = "take a screenshot all screen", group = "screen"}),
+    awful.key({modkey}, "F12", function()
+        awful.spawn(
+            "xfce4-screenshooter"
+            )
     end, {description = "take a screenshot all screen", group = "screen"}),
     awful.key({modkey, "Control"}, "j",
               function() awful.screen.focus_relative(1) end,
