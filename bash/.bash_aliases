@@ -9,6 +9,7 @@ alias aliases="cat ./.bash_aliases | grep '^alias\|^.*()' | sed 's/^alias //g; s
 alias rm="rm -i"
 alias srm="trash-put"
 alias pm="pulsemixer"
+alias xo="xdg-open"
 alias weka="~/.weka/weka-3-8-5/weka.sh &"
 
 #Aliases usados com simple_mtpfs

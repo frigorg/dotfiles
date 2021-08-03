@@ -14,8 +14,7 @@ local keys = require("keys")
 
 -- Widgets
 local logout_menu_widget = require("widgets/logout-menu-widget.logout-menu")
--- local volume_widget = require('widgets/volume-widget.volume')
-
+local systats = require("widgets/systats-widget.systats")
 local calendar_widget = require("widgets/calendar-widget.calendar")
 local cw =
     calendar_widget({theme = 'dark', placement = 'top_right', radius = 8})
@@ -30,6 +29,7 @@ if awesome.startup_errors then
         text = awesome.startup_errors
     })
 end
+
 
 -- Handle runtime errors after startup
 do
@@ -157,14 +157,12 @@ mytextclock = wibox.widget {
     {
         {
             {widget = wibox.widget.textclock("%R"), align = "center"},
-            left = 10,
-            right = 10,
             top = 3,
             bottom = 3,
             widget = wibox.container.margin
         },
         shape = function(cr, width, height)
-            gears.shape.rounded_rect(cr, width, height, 10)
+            gears.shape.rectangle(cr, width, height)
         end,
         bg = beautiful.bg_widget,
         widget = wibox.container.background
@@ -175,8 +173,14 @@ mytextclock:connect_signal("button::press", function(_, _, _, button)
     if button == 1 then cw.toggle() end
 end)
 
-witeste = wibox.widget {
+local separator = wibox.widget {
+    widget = wibox.widget.separator,
+    orientation = 'vertical',
+    forced_width = 15,
+    forced_height = 2,
 }
+
+local systray = wibox.widget.systray()
 
 -- callback function for each screen creation
 awful.screen.connect_for_each_screen(function(s)
@@ -184,7 +188,7 @@ awful.screen.connect_for_each_screen(function(s)
     set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    awful.tag({"1", "2", "3", "4", "5", "6", "7", "8", "9"}, s,
+    awful.tag({"1", "2", "3", "4", "5", "6", "7", "8"}, s,
               awful.layout.layouts[1])
 
     -- Set screen padding
@@ -235,12 +239,13 @@ awful.screen.connect_for_each_screen(function(s)
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            wibox.widget.systray(),
-            -- volume_widget{
-            --     widget_type = 'arc'
-            -- },
+            separator,
+            systray,
+            separator,
+            systats.status,
+            separator,
             mytextclock,
-            witeste,
+            separator,
             logout_menu_widget {
                 onlock = function()
                     awful.spawn.with_shell('i3lock -ub -c 000000')
