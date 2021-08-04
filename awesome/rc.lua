@@ -14,7 +14,7 @@ local keys = require("keys")
 
 -- Widgets
 local logout_menu_widget = require("widgets/logout-menu-widget.logout-menu")
-local systats = require("widgets/systats-widget.systats")
+local systats = require("widgets/systats-widget/systats")
 local calendar_widget = require("widgets/calendar-widget.calendar")
 local cw =
     calendar_widget({theme = 'dark', placement = 'top_right', radius = 8})
@@ -61,9 +61,7 @@ local programs = {
     launcher = "dmenu_run"
 }
 
-local networkapplet = "nm-applet"
-
-editor = os.getenv("EDITOR") or "vim"
+editor = os.getenv("EDITOR") or "gvim"
 editor_cmd = programs.terminal .. " -e " .. editor
 
 local globalkeys = keys.globalkeys(programs)
@@ -71,6 +69,7 @@ local clientkeys = keys.clientkeys()
 local clientbuttons = keys.clientbuttons()
 
 local theme = "custon"
+-- local theme = "froggy"
 -- local theme = "default"
 -- local theme = "gtk"
 -- local theme = "sky"
@@ -191,6 +190,11 @@ awful.screen.connect_for_each_screen(function(s)
     awful.tag({"1", "2", "3", "4", "5", "6", "7", "8"}, s,
               awful.layout.layouts[1])
 
+    awful.tag.add("9",  {
+                        screen = s,
+                        layout = awful.layout.layouts[2],
+                        })
+
     -- Set screen padding
     if not sp then sp = {top = 0, right = 0, bottom = 0, right = 0} end
     s.padding = beautiful.screen_padding
@@ -242,7 +246,7 @@ awful.screen.connect_for_each_screen(function(s)
             separator,
             systray,
             separator,
-            systats.status,
+            systats,
             separator,
             mytextclock,
             separator,
@@ -293,6 +297,3 @@ client.connect_signal("unfocus",
 --- Lower nenory consumption
 collectgarbage("setpause", 110)
 collectgarbage("setstepmul", 1000)
-
---- Aplications running at startup
-awful.spawn(networkapplet .. " &")

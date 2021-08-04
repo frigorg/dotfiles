@@ -19,6 +19,9 @@ set hlsearch
 " TAB traduzido em 4 espaços
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 
+" Y copia até o fim da linha
+nnoremap Y y$
+
 " Map autocomplete (apenas palavras no arquivo atual)(:help ins-completion para mais informações)
 imap <S-Tab> <C-N>
 
@@ -61,6 +64,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     Plug 'machakann/vim-highlightedyank'
+    Plug 'ap/vim-css-color'
 call plug#end()
 
 " Atalho para o Fuzzy Finder

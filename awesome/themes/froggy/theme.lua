@@ -1,6 +1,6 @@
-------------------------------
--- Material Black Pistachio --
-------------------------------
+---------------------------
+-- froggy theme theme --
+---------------------------
 
 local theme_assets = require("beautiful.theme_assets")
 local xresources = require("beautiful.xresources")
@@ -10,39 +10,26 @@ local themes_path = string.format("%s/.config/awesome/themes/", os.getenv("HOME"
 
 local theme = {}
 
--- Color palette
--- #090909 - background
--- #0F1010 - background
--- #1A1C1E - background
--- #545454 - foreground
--- #C1C1C1 - foreground
--- #234D4A - highlighting
--- #38B7AB - highlighting
--- #B73844 - Highlighting complementary red
--- #B7AB38 - Highlighting complementary yellow
-
 theme.titlebars_enabled = false
 
-theme.font          = "Fira code bold 9"
+theme.font          = "Fira code bold 8"
 
-theme.bg_normal     = "#0F1010"
-theme.bg_focus      = "#545454"
-theme.bg_urgent     = "#B73844"
-theme.bg_minimize   = "#090909"
+theme.bg_normal     = "#2B393B"
+theme.bg_focus      = "#4E6A6A"
+theme.bg_urgent     = "#B65311"
+theme.bg_minimize   = "#444444"
 theme.bg_systray    = theme.bg_normal
 
-theme.fg_normal     = "#C1C1C1"
+theme.fg_normal     = "#aaaaaa"
 theme.fg_focus      = "#ffffff"
 theme.fg_urgent     = "#ffffff"
 theme.fg_minimize   = "#ffffff"
 
-theme.border_normal = "#1A1C1E"
-theme.border_focus  = "#38B7AB"
-theme.border_marked = "#B73844"
+theme.border_normal = "#2B393B"
+theme.border_focus  = "#A5BE7D"
+theme.border_marked = "#B65311"
 
-theme.taglist_bg_focus = "#234D4A"
-theme.font_color_l = "#545454"
-theme.font_color_h = "#C1C1C1"
+theme.taglist_bg_focus = "#74A059"
 
 theme.systray_icon_spacing = dpi(8)
 
@@ -77,7 +64,7 @@ theme.menu_submenu_icon = themes_path.."default/submenu.png"
 theme.menu_height = dpi(15)
 theme.menu_width  = dpi(100)
 
-theme.wallpaper = themes_path.."custon/background.jpg"
+theme.wallpaper = themes_path.."froggy/background.jpg"
 
 -- You can use your own layout icons like this:
 theme.layout_fairh = themes_path.."default/layouts/fairhw.png"
