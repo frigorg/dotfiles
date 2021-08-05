@@ -1,49 +1,37 @@
 #My aliases
 
-alias ll="ls -l"
-alias lla="ls -la"
-alias code="code -n"
-alias sublime="sublime_text"
-alias path="echo $PATH | sed 's/:/\n/g'"
-alias aliases="cat ./.bash_aliases | grep '^alias\|^.*()' | sed 's/^alias //g; s/=\".*$//g; s/().*$//g'"
-alias rm="rm -i"
-alias srm="trash-put"
-alias pm="pulsemixer"
-alias xo="xdg-open"
-alias weka="~/.weka/weka-3-8-5/weka.sh &"
+alias aliases="cat ~/.bash_aliases | grep '^alias\|^.*()' | sed 's/^alias //g; s/=\".*\#/ = /g; s/().*\#/ = /g'" #Show all the aliases
+alias ll="ls -l" #Long listing format
+alias lla="ls -la" #Long listing format including hiden files
+alias code="code -n" #Runs Visual Studio Code in a new session
+alias path="echo $PATH | sed 's/:/\n/g'" #Shows the Path paths
+alias rm="rm -i" #Remove with a confirmation
+alias srm="trash-put" #Send a file to trash bin
+alias pm="pulsemixer" #Runs pulsemixer
+alias xo="xdg-open" #Opens a file using xdg-open
 
-#Aliases usados com simple_mtpfs
-alias alist="simple-mtpfs -l"
-alias amount="simple-mtpfs --device" #[device number] [mountpoint]
+alias als="simple-mtpfs -l" #List avaliable Android devices
 
-alias aumount="fusermount -u"
+amt(){ #$[device number] Mounts an Android device at ~/.mnt
+    [ $# == 1 ] && simple-mtpfs --device "$1" "/home/$USER/.mnt"
+} 
 
-#Redshift
-alias reds="redshift -l -21.595414323543466:-46.88868010008186"
+alias aumt="fusermount -u '/home/$USER/.mnt'" #Unmount Android device mounted at ~/.mnt
 
-
-jupylab() {
-    jupyter lab --browser=firefox
+mt(){ #$[device name without /dev/] Mounts a device
+    [ $# == 1 ] && udisksctl mount -b "/dev/$1"
 }
 
-jupynb() {
-    jupyter notebook --browser=firefox
+umt() { #$[device name without /dev/] Unmounts a device
+    [ $# == 1 ] && udiskie-umount "/dev/$1" --detach
 }
 
-sd(){
+alias jupylab="jupyter lab --browser=firefox" #Starts Jupyter Lab in Firefox
+
+alias jupynb="jupyter notebook --browser=firefox" #Starts Jupyter notebook in Firefox
+
+sd(){ #Asks for shutdown
     read -p 'Shutdown now(y/n)? ' out
     [ $out == 'y' ] && shutdown +0
     unset out
 }
-
-rb(){
-    read -p 'Reboot now(y/n)? ' out
-    [ $out == 'y' ] && reboot
-    unset out
-}
-
-killusb() {
-    [ $# == 1 ] && udiskie-umount $1 --force --detach
-}
-
-
