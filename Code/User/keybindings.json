@@ -1,154 +1,17 @@
 // Place your key bindings in this file to override the defaults
 [
+    // UNSET
     {
         "key": "ctrl+z",
         "command": "-undo"
     },
-    // JUPYTER COMMANDS
     {
-        "key": "a",
-        "command": "-notebook.cell.insertCodeCellAbove",
-        "when": "config.jupyter.enableKeyboardShortcuts && notebookEditorFocused && !inputFocus && notebookType == 'jupyter-notebook'"
+        "key": "ctrl+q",
+        "command": "-workbench.action.quit"
     },
     {
-        "key": "f",
-        "command": "-notebook.find",
-        "when": "config.jupyter.enableKeyboardShortcuts && notebookEditorFocused && !inputFocus && notebookType == 'jupyter-notebook'"
-    },
-    {
-        "key": "o",
-        "command": "-jupyter.notebookeditor.keybind.toggleOutput",
-        "when": "config.jupyter.enableKeyboardShortcuts && notebookEditorFocused && !inputFocus && notebookType == 'jupyter-notebook'"
-    },
-    {
-        "key": "c",
-        "command": "notebook.cell.insertCodeCellBelow",
-        "when": "config.jupyter.enableKeyboardShortcuts && notebookEditorFocused && !inputFocus && notebookType == 'jupyter-notebook'"
-    },
-    {
-        "key": "b",
-        "command": "-notebook.cell.insertCodeCellBelow",
-        "when": "config.jupyter.enableKeyboardShortcuts && notebookEditorFocused && !inputFocus && notebookType == 'jupyter-notebook'"
-    },
-    {
-        "key": "shift+c",
-        "command": "notebook.cell.insertCodeCellAbove",
-        "when": "config.jupyter.enableKeyboardShortcuts && notebookEditorFocused && !inputFocus && notebookType == 'jupyter-notebook'"
-    },
-    {
-        "key": "ctrl+shift+enter",
-        "command": "-notebook.cell.insertCodeCellAbove",
-        "when": "notebookCellListFocused && !inputFocus"
-    },
-    {
-        "key": "g x",
-        "command": "notebook.cell.clearOutputs",
-        "when": "config.jupyter.enableKeyboardShortcuts && notebookEditorFocused && !inputFocus && notebookType == 'jupyter-notebook'"
-    },
-    {
-        "key": "alt+delete",
-        "command": "-notebook.cell.clearOutputs",
-        "when": "notebookCellEditable && notebookCellHasOutputs && notebookEditable && notebookEditorFocused && !inputFocus"
-    },
-    {
-        "key": "g shift+x",
-        "command": "notebook.clearAllCellsOutputs",
-        "when": "config.jupyter.enableKeyboardShortcuts && notebookEditorFocused && !inputFocus && notebookType == 'jupyter-notebook'"
-    },
-    {
-        "key": "/",
-        "command": "notebook.find",
-        "when": "config.jupyter.enableKeyboardShortcuts && notebookEditorFocused && !inputFocus && notebookType == 'jupyter-notebook'"
-    },
-    {
-        "key": "ctrl+f",
-        "command": "-notebook.find",
-        "when": "notebookEditorFocused || !editorFocus && activeEditor == 'workbench.editor.notebook'"
-    },
-    {
-        "key": "y y",
-        "command": "notebook.cell.copy",
-        "when": "config.jupyter.enableKeyboardShortcuts && notebookEditorFocused && !inputFocus && notebookType == 'jupyter-notebook'"
-    },
-    {
-        "key": "c",
-        "command": "-notebook.cell.copy",
-        "when": "config.jupyter.enableKeyboardShortcuts && notebookEditorFocused && !inputFocus && notebookType == 'jupyter-notebook'"
-    },
-    {
-        "key": "t",
-        "command": "notebook.cell.insertMarkdownCellBelow",
-        "when": "config.jupyter.enableKeyboardShortcuts && notebookEditorFocused && !inputFocus && notebookType == 'jupyter-notebook'"
-    },
-    {
-        "key": "shift+t",
-        "command": "notebook.cell.insertMarkdownCellAbove",
-        "when": "config.jupyter.enableKeyboardShortcuts && notebookEditorFocused && !inputFocus && notebookType == 'jupyter-notebook'"
-    },
-    {
-        "key": "p",
-        "command": "notebook.cell.paste",
-        "when": "config.jupyter.enableKeyboardShortcuts && notebookEditorFocused && !inputFocus && notebookType == 'jupyter-notebook'"
-    },
-    {
-        "key": "v",
-        "command": "-notebook.cell.paste",
-        "when": "config.jupyter.enableKeyboardShortcuts && notebookEditorFocused && !inputFocus && notebookType == 'jupyter-notebook'"
-    },
-    {
-        "key": "shift+p",
-        "command": "notebook.cell.pasteAbove",
-        "when": "config.jupyter.enableKeyboardShortcuts && notebookEditorFocused && !inputFocus && notebookType == 'jupyter-notebook'"
-    },
-    {
-        "key": "ctrl+shift+v",
-        "command": "-notebook.cell.pasteAbove",
-        "when": "notebookEditorFocused && !inputFocus"
-    },
-    {
-        "key": "shift+alt+down",
-        "command": "-notebook.cell.copyDown",
-        "when": "notebookEditorFocused && !inputFocus"
-    },
-    {
-        "key": "shift+alt+up",
-        "command": "-notebook.cell.copyUp",
-        "when": "notebookEditorFocused && !inputFocus"
-    },
-    {
-        "key": "d d",
-        "command": "-notebook.cell.delete",
-        "when": "config.jupyter.enableKeyboardShortcuts && notebookEditorFocused && !inputFocus && notebookType == 'jupyter-notebook'"
-    },
-    {
-        "key": "d d",
-        "command": "notebook.cell.cut",
-        "when": "config.jupyter.enableKeyboardShortcuts && notebookEditorFocused && !inputFocus && notebookType == 'jupyter-notebook'"
-    },
-    {
-        "key": "x",
-        "command": "-notebook.cell.cut",
-        "when": "config.jupyter.enableKeyboardShortcuts && notebookEditorFocused && !inputFocus && notebookType == 'jupyter-notebook'"
-    },
-    {
-        "key": "m",
-        "command": "-notebook.cell.changeToMarkdown",
-        "when": "notebookEditorFocused && !inputFocus && activeEditor == 'workbench.editor.notebook' && notebookCellType == 'code'"
-    },
-    {
-        "key": "y",
-        "command": "-notebook.cell.changeToCode",
-        "when": "notebookEditorFocused && !inputFocus && activeEditor == 'workbench.editor.notebook' && notebookCellType == 'markup'"
-    },
-    {
-        "key": "shift+j",
-        "command": "notebook.focusNextEditor",
-        "when": "editorTextFocus && inputFocus && notebookEditorFocused && vim.mode == 'Normal'"
-    },
-    {
-        "key": "shift+k",
-        "command": "notebook.focusPreviousEditor",
-        "when": "editorTextFocus && inputFocus && notebookEditorFocused && vim.mode == 'Normal'"
+        "key": "alt+f4",
+        "command": "-workbench.action.closeWindow"
     },
     {
         "key": "k",
@@ -194,27 +57,6 @@
         "command": "-workbench.action.closeAllGroups"
     },
     {
-        "key": "ctrl+meta+w",
-        "command": "-workbench.action.toggleTabsVisibility"
-    },
-    {
-        "key": "ctrl+k e",
-        "command": "-workbench.files.action.focusOpenEditorsView",
-        "when": "workbench.explorer.openEditorsView.active"
-    },
-    {
-        "key": "g e",
-        "command": "workbench.view.explorer",
-        // "when": "explorerViewletVisible && explorerViewletFocus && filesExplorerFocus"
-        "when": "explorerViewletFocus && explorerViewletVisible && !inputFocus"
-    },
-    {
-        "key": "q",
-        "command": "workbench.action.toggleSidebarVisibility",
-        // "when": "explorerViewletVisible && explorerViewletFocus && filesExplorerFocus"
-        "when": "explorerViewletFocus && explorerViewletVisible && !inputFocus"
-    },
-    {
         "key": "ctrl+shift+e",
         "command": "-workbench.view.explorer",
         "when": "viewContainer.workbench.view.explorer.enabled"
@@ -240,6 +82,191 @@
         "command": "-workbench.action.focusAboveGroup"
     },
     {
+        "key": "ctrl+enter",
+        "command": "-explorer.openToSide",
+        "when": "explorerViewletFocus && explorerViewletVisible && !inputFocus"
+    },
+    {
+        "key": "enter",
+        "command": "-explorer.openAndPassFocus",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsFolder && !inputFocus"
+    },
+    {
+        "key": "ctrl+n",
+        "command": "-workbench.action.files.newUntitledFile"
+    },
+    // JUPYTER 
+        // UNSET
+    {
+        "key": "a",
+        "command": "-notebook.cell.insertCodeCellAbove",
+        "when": "config.jupyter.enableKeyboardShortcuts && notebookEditorFocused && !inputFocus && notebookType == 'jupyter-notebook'"
+    },
+    {
+        "key": "f",
+        "command": "-notebook.find",
+        "when": "config.jupyter.enableKeyboardShortcuts && notebookEditorFocused && !inputFocus && notebookType == 'jupyter-notebook'"
+    },
+    {
+        "key": "o",
+        "command": "-jupyter.notebookeditor.keybind.toggleOutput",
+        "when": "config.jupyter.enableKeyboardShortcuts && notebookEditorFocused && !inputFocus && notebookType == 'jupyter-notebook'"
+    },
+    {
+        "key": "b",
+        "command": "-notebook.cell.insertCodeCellBelow",
+        "when": "config.jupyter.enableKeyboardShortcuts && notebookEditorFocused && !inputFocus && notebookType == 'jupyter-notebook'"
+    },
+    {
+        "key": "ctrl+shift+enter",
+        "command": "-notebook.cell.insertCodeCellAbove",
+        "when": "notebookCellListFocused && !inputFocus"
+    },
+    {
+        "key": "alt+delete",
+        "command": "-notebook.cell.clearOutputs",
+        "when": "notebookCellEditable && notebookCellHasOutputs && notebookEditable && notebookEditorFocused && !inputFocus"
+    },
+    {
+        "key": "ctrl+f",
+        "command": "-notebook.find",
+        "when": "notebookEditorFocused || !editorFocus && activeEditor == 'workbench.editor.notebook'"
+    },
+    {
+        "key": "c",
+        "command": "-notebook.cell.copy",
+        "when": "config.jupyter.enableKeyboardShortcuts && notebookEditorFocused && !inputFocus && notebookType == 'jupyter-notebook'"
+    },
+    {
+        "key": "v",
+        "command": "-notebook.cell.paste",
+        "when": "config.jupyter.enableKeyboardShortcuts && notebookEditorFocused && !inputFocus && notebookType == 'jupyter-notebook'"
+    },
+    {
+        "key": "ctrl+shift+v",
+        "command": "-notebook.cell.pasteAbove",
+        "when": "notebookEditorFocused && !inputFocus"
+    },
+    {
+        "key": "shift+alt+down",
+        "command": "-notebook.cell.copyDown",
+        "when": "notebookEditorFocused && !inputFocus"
+    },
+    {
+        "key": "shift+alt+up",
+        "command": "-notebook.cell.copyUp",
+        "when": "notebookEditorFocused && !inputFocus"
+    },
+    {
+        "key": "d d",
+        "command": "-notebook.cell.delete",
+        "when": "config.jupyter.enableKeyboardShortcuts && notebookEditorFocused && !inputFocus && notebookType == 'jupyter-notebook'"
+    },
+    {
+        "key": "x",
+        "command": "-notebook.cell.cut",
+        "when": "config.jupyter.enableKeyboardShortcuts && notebookEditorFocused && !inputFocus && notebookType == 'jupyter-notebook'"
+    },
+    {
+        "key": "m",
+        "command": "-notebook.cell.changeToMarkdown",
+        "when": "notebookEditorFocused && !inputFocus && activeEditor == 'workbench.editor.notebook' && notebookCellType == 'code'"
+    },
+    {
+        "key": "y",
+        "command": "-notebook.cell.changeToCode",
+        "when": "notebookEditorFocused && !inputFocus && activeEditor == 'workbench.editor.notebook' && notebookCellType == 'markup'"
+    },
+    {
+        "key": "ctrl+meta+w",
+        "command": "-workbench.action.toggleTabsVisibility"
+    },
+    {
+        "key": "ctrl+k e",
+        "command": "-workbench.files.action.focusOpenEditorsView",
+        "when": "workbench.explorer.openEditorsView.active"
+    },
+    {
+        "key": "c",
+        "command": "notebook.cell.insertCodeCellBelow",
+        "when": "config.jupyter.enableKeyboardShortcuts && notebookEditorFocused && !inputFocus && notebookType == 'jupyter-notebook'"
+    },
+    {
+        "key": "shift+c",
+        "command": "notebook.cell.insertCodeCellAbove",
+        "when": "config.jupyter.enableKeyboardShortcuts && notebookEditorFocused && !inputFocus && notebookType == 'jupyter-notebook'"
+    },
+    {
+        "key": "g x",
+        "command": "notebook.cell.clearOutputs",
+        "when": "config.jupyter.enableKeyboardShortcuts && notebookEditorFocused && !inputFocus && notebookType == 'jupyter-notebook'"
+    },
+    {
+        "key": "g shift+x",
+        "command": "notebook.clearAllCellsOutputs",
+        "when": "config.jupyter.enableKeyboardShortcuts && notebookEditorFocused && !inputFocus && notebookType == 'jupyter-notebook'"
+    },
+    {
+        "key": "/",
+        "command": "notebook.find",
+        "when": "config.jupyter.enableKeyboardShortcuts && notebookEditorFocused && !inputFocus && notebookType == 'jupyter-notebook'"
+    },
+    {
+        "key": "y y",
+        "command": "notebook.cell.copy",
+        "when": "config.jupyter.enableKeyboardShortcuts && notebookEditorFocused && !inputFocus && notebookType == 'jupyter-notebook'"
+    },
+    {
+        "key": "t",
+        "command": "notebook.cell.insertMarkdownCellBelow",
+        "when": "config.jupyter.enableKeyboardShortcuts && notebookEditorFocused && !inputFocus && notebookType == 'jupyter-notebook'"
+    },
+    {
+        "key": "shift+t",
+        "command": "notebook.cell.insertMarkdownCellAbove",
+        "when": "config.jupyter.enableKeyboardShortcuts && notebookEditorFocused && !inputFocus && notebookType == 'jupyter-notebook'"
+    },
+    {
+        "key": "p",
+        "command": "notebook.cell.paste",
+        "when": "config.jupyter.enableKeyboardShortcuts && notebookEditorFocused && !inputFocus && notebookType == 'jupyter-notebook'"
+    },
+    {
+        "key": "shift+p",
+        "command": "notebook.cell.pasteAbove",
+        "when": "config.jupyter.enableKeyboardShortcuts && notebookEditorFocused && !inputFocus && notebookType == 'jupyter-notebook'"
+    },
+    {
+        "key": "d d",
+        "command": "notebook.cell.cut",
+        "when": "config.jupyter.enableKeyboardShortcuts && notebookEditorFocused && !inputFocus && notebookType == 'jupyter-notebook'"
+    },
+    {
+        "key": "shift+j",
+        "command": "notebook.focusNextEditor",
+        "when": "editorTextFocus && inputFocus && notebookEditorFocused && vim.mode == 'Normal'"
+    },
+    {
+        "key": "shift+k",
+        "command": "notebook.focusPreviousEditor",
+        "when": "editorTextFocus && inputFocus && notebookEditorFocused && vim.mode == 'Normal'"
+    },
+    // VIM LIKE CONF
+    {
+        "key": "g e",
+        "command": "workbench.view.explorer",
+        "when": "explorerViewletFocus && explorerViewletVisible && !inputFocus"
+    },
+    {
+        "key": "q",
+        "command": "workbench.action.toggleSidebarVisibility",
+        "when": "explorerViewletFocus && explorerViewletVisible && !inputFocus"
+    },
+    {
+        "key": "ctrl+b",
+        "command": "workbench.action.toggleSidebarVisibility"
+    },
+    {
         "key": "\\ h",
         "command": "workbench.action.focusLeftGroup",
         "when": "editorTextFocus && vim.mode == 'Normal'"
@@ -260,17 +287,8 @@
         "when": "editorTextFocus && vim.mode == 'Normal'"
     },
     {
-        "key": "ctrl+b",
-        "command": "-workbench.action.toggleSidebarVisibility"
-    },
-    {
         "key": "s",
         "command": "explorer.openToSide",
-        "when": "explorerViewletFocus && explorerViewletVisible && !inputFocus"
-    },
-    {
-        "key": "ctrl+enter",
-        "command": "-explorer.openToSide",
         "when": "explorerViewletFocus && explorerViewletVisible && !inputFocus"
     },
     {
@@ -279,18 +297,9 @@
         "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsFolder && !inputFocus"
     },
     {
-        "key": "enter",
-        "command": "-explorer.openAndPassFocus",
-        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsFolder && !inputFocus"
-    },
-    {
         "key": "shift+n",
         "command": "explorer.newFolder",
         "when": "explorerViewletFocus && explorerViewletVisible && !inputFocus"
-    },
-    {
-        "key": "ctrl+n",
-        "command": "-workbench.action.files.newUntitledFile"
     },
     {
         "key": "n",

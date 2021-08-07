@@ -15,7 +15,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'machakann/vim-highlightedyank'
     Plug 'ap/vim-css-color'
     Plug 'ycm-core/YouCompleteMe'
-    Plug 'mattn/emmet-vim'
+    " Plug 'mattn/emmet-vim'"Deixa o Vim muito lento
     Plug 'preservim/nerdtree'
 call plug#end()
 
@@ -23,7 +23,7 @@ call plug#end()
 let g:highlightedyank_highlight_duration = 200
 
 " Definindo a leader key do Emmet
-let g:user_emmet_leader_key='<C-M>'
+" let g:user_emmet_leader_key='<C-M>'
 
 " Y copia até o fim da linha
 nnoremap Y y$
