@@ -11,16 +11,47 @@
             "commands": [
                 "redo",
             ]
+        },
+        {
+            "before": ["g", "t"],
+            "commands": [
+                ":tabn",
+            ]
+        },
+        {
+            "before": ["g", "T"],
+            "commands": [
+                ":tabp",
+            ]
+        },
+        {
+            "before": ["<leader>", "t"],
+            "commands": [
+                ":tabn",
+            ]
+        },
+        {
+            "before": ["<leader>", "T"],
+            "commands": [
+                ":tabp",
+            ]
+        },
+        {
+            "before": ["g", "e"],
+            "commands": [
+                "workbench.view.explorer",
+            ]
         }
     ],
-    "telemetry.enableCrashReporter": false,
-    "telemetry.enableTelemetry": false,
-    "Lua.telemetry.enable": false,
-    "editor.semanticHighlighting.enabled": true,
+    "vim.useSystemClipboard": true,
     "vim.highlightedyank.enable": true,
     "vim.smartRelativeLine": true,
     "vim.ignorecase": true,
     "vim.hlsearch": true,
+    "telemetry.enableCrashReporter": false,
+    "telemetry.enableTelemetry": false,
+    "Lua.telemetry.enable": false,
+    "editor.semanticHighlighting.enabled": true,
     "terminal.integrated.localEchoExcludePrograms": [
         "vim",
         "tmux"
@@ -36,6 +67,7 @@
     "workbench.editor.restoreViewState": false,
     "editor.fontSize": 18,
     "editor.fontFamily": "'JetBrains Mono','FiraCode','Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
-    "vim.useSystemClipboard": true
+    "workbench.editor.enablePreviewFromCodeNavigation": true,
+    "terminal.integrated.tabs.enabled": false
 
 }

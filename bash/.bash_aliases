@@ -10,6 +10,17 @@ alias srm="trash-put" #Send a file to trash bin
 alias pm="pulsemixer" #Runs pulsemixer
 alias xo="xdg-open" #Opens a file using xdg-open
 
+spoti(){ #Runs Spotifyd before spotify-cli
+    pgrep 'spotifyd' > /dev/null
+    if [ $? ] 
+    then
+        spotifyd
+        spt
+    else
+        spt
+    fi 
+}
+
 alias als="simple-mtpfs -l" #List avaliable Android devices
 
 amt(){ #$[device number] Mounts an Android device at ~/.mnt
