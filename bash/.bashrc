@@ -9,7 +9,7 @@ alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 
 #Link to my $PATH additional paths
-#~/.profile
+# source ~/.profile
 
 #Link to my aliases
 source ~/.bash_aliases

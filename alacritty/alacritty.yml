@@ -182,7 +182,11 @@ font:
 #draw_bold_text_with_bright_colors: false
 # Colors (Tomorrow Night)
 import:
- - ~/.config/alacritty/colors/solarized-dark.yml
+ # - ~/.config/alacritty/colors/solarized-dark.yml
+ # - ~/.config/alacritty/colors/custon.yml
+ - ~/.config/alacritty/colors/jellybeans.yml
+
+
 #colors:
   # Default colors
   #primary:

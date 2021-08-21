@@ -103,11 +103,11 @@ awful.layout.layouts = {
 -- Keyboard map indicator and switcher
 mykeyboardlayout = awful.widget.keyboardlayout()
 
--- }}} 
+-- }}}
 
 -- {{{ Rules
 awful.rules.rules = create_rules(clientkeys, clientbuttons)
--- }}} 
+-- }}}
 
 -- {{{ Wibar
 
@@ -245,6 +245,7 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
             separator,
             systray,
+            mykeyboardlayout,
             separator,
             systats,
             separator,

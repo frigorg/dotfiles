@@ -17,10 +17,21 @@ call plug#begin('~/.vim/plugged')
     Plug 'ycm-core/YouCompleteMe'
     " Plug 'mattn/emmet-vim'"Deixa o Vim muito lento
     Plug 'preservim/nerdtree'
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
 call plug#end()
+
+" Ao usar o autocomplete não será aberta uma nova janela com a definição do termo
+set completeopt-=preview
+
+" Atalhos para YouCompleteMe
+map gd :YcmCompleter GoTo <CR>
 
 " Duração do highlightedyank
 let g:highlightedyank_highlight_duration = 200
+
+" Definindo tema para vim-airline
+let g:airline_theme='luna'
 
 " Definindo a leader key do Emmet
 " let g:user_emmet_leader_key='<C-M>'
@@ -30,7 +41,7 @@ nnoremap Y y$
 
 " Atalhos para gerenciamento de registradores
 " clipboard vai para o registrador + (padrão utilizado pelo vim)
-set clipboard=unnamedplus 
+set clipboard=unnamedplus
 
 " Movimentos entre janelas com a tecla leader
 map <leader>h :wincmd h<CR>
@@ -51,8 +62,8 @@ map <C-P> :FZF <CR>
 " Esquema de cores
 set t_Co=256
 set t_ut=
-syntax enable 
-colorscheme jellybeans 
+syntax enable
+colorscheme jellybeans
 
 " Mostrar as linhas de forma relativa e absoluta
 set relativenumber
@@ -62,6 +73,12 @@ map gn :set relativenumber!<CR>
 
 " Comando de subtituição passa por um preview (somente neovim)
 " set inccommand=nosplit
+
+" Faz com que a exibição de uma linha longa seja quebrada, porém o texto original contém a linha sem limite
+set wrap
+
+" Mostra os comandos digitados em normal mode
+set showcmd
 
 " buscas em caixa baixa são insensitive case
 set smartcase
@@ -84,11 +101,11 @@ set path+=**
 " Habilita um menu para autocomplete do find
 set wildmenu
 
-" Configuração do Netrw 
-let g:netrw_liststyle = 3
-let g:netrw_banner = 0
-let g:netrw_browse_split = 4
-let g:netrw_winsize = 20
-let g:netrw_sort_sequence = '[\/]$,*'
-let g:netrw_altv = 1
+" Configuração do Netrw
+" let g:netrw_liststyle = 3
+" let g:netrw_banner = 0
+" let g:netrw_browse_split = 4
+" let g:netrw_winsize = 20
+" let g:netrw_sort_sequence = '[\/]$,*'
+" let g:netrw_altv = 1
 

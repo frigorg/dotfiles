@@ -9,6 +9,7 @@ alias rm="rm -i" #Remove with a confirmation
 alias srm="trash-put" #Send a file to trash bin
 alias pm="pulsemixer" #Runs pulsemixer
 alias xo="xdg-open" #Opens a file using xdg-open
+alias ks="killall spotifyd" #Kill Spotifyd process
 
 spoti(){ #Runs Spotifyd before spotify-cli
     pgrep 'spotifyd' > /dev/null
