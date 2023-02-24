@@ -14,7 +14,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/fzf.vim'
     Plug 'machakann/vim-highlightedyank'
     Plug 'ap/vim-css-color'
-    Plug 'ycm-core/YouCompleteMe'
+    " Plug 'ycm-core/YouCompleteMe'
     " Plug 'mattn/emmet-vim'"Deixa o Vim muito lento
     Plug 'preservim/nerdtree'
     Plug 'vim-airline/vim-airline'

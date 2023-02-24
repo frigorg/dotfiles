@@ -150,47 +150,46 @@ function keys.globalkeys(programs)
             "xfce4-screenshooter"
             )
     end, {description = "take a screenshot all screen", group = "screen"}),
-    awful.key({modkey, "Control"}, "j",
-              function() awful.screen.focus_relative(1) end,
-              {description = "focus the next screen", group = "screen"}),
-    awful.key({modkey, "Control"}, "k",
-              function() awful.screen.focus_relative(-1) end,
-              {description = "focus the previous screen", group = "screen"}),
-    awful.key({modkey, "Control"}, "l",
-              function() awful.screen.focus_relative(1) end,
-              {description = "focus the next screen", group = "screen"}),
-    awful.key({modkey, "Control"}, "h",
-              function() awful.screen.focus_relative(-1) end,
-              {description = "focus the previous screen", group = "screen"}),
-
-    awful.key({modkey}, "d",
-              function() awful.tag.viewnone(awful.screen.focused()) end,
-              {description = "show no tags", group = "tag"}), -- Tag related
+    awful.key({modkey, "Control"}, "j", function() 
+        awful.screen.focus_relative(1) 
+    end, {description = "focus the next screen", group = "screen"}),
+    awful.key({modkey, "Control"}, "k", function() 
+        awful.screen.focus_relative(-1) 
+    end, {description = "focus the previous screen", group = "screen"}),
+    awful.key({modkey, "Control"}, "l", function() 
+        awful.screen.focus_relative(1) 
+    end, {description = "focus the next screen", group = "screen"}),
+    awful.key({modkey, "Control"}, "h", function() 
+        awful.screen.focus_relative(-1) 
+    end, {description = "focus the previous screen", group = "screen"}),
+    awful.key({modkey}, "d", function() 
+        awful.tag.viewnone(awful.screen.focused()) 
+    end, {description = "show no tags", group = "tag"}), -- Tag related
     awful.key({modkey}, ",", awful.tag.viewprev,
               {description = "view previous", group = "tag"}),
     awful.key({modkey}, ".", awful.tag.viewnext,
               {description = "view next", group = "tag"}),
 
-    awful.key({modkey, "Shift"}, ",", 
-    function()
-            if client.focus then
-                local tag = client.focus.screen.tags[client.focus.first_tag.index - 1]
-                if tag then client.focus:move_to_tag(tag) end
+    awful.key({modkey, "Shift"}, ",", function()
+        if client.focus then
+            local tag = client.focus.screen.tags[client.focus.first_tag.index - 1]
+            if tag then 
+                client.focus:move_to_tag(tag) 
             end
-        end,
-              {description = "move client to previous tag", group = "client"}),
-    awful.key({modkey, "Shift"}, ".", 
-    function()
-            if client.focus then
-                local tag = client.focus.screen.tags[client.focus.first_tag.index + 1]
-                if tag then client.focus:move_to_tag(tag) end
+        end
+    end, {description = "move client to previous tag", group = "client"}),
+    awful.key({modkey, "Shift"}, ".", function()
+        if client.focus then
+            local tag = client.focus.screen.tags[client.focus.first_tag.index + 1]
+            if tag then 
+                client.focus:move_to_tag(tag) 
             end
-        end,
-              {description = "move client to next tag", group = "client"}),
+        end
+    end, {description = "move client to next tag", group = "client"}),
 
-    awful.key({modkey}, "Tab",
-              function() awful.menu.client_list({theme = {width = 250}}) end,
-              {description = "go back", group = "tag"}),
+    awful.key({modkey}, "Tab", function() 
+        awful.menu.client_list({theme = {width = 250}}) 
+    end, {description = "go back", group = "tag"}),
     awful.key({modkey}, "space", function()
         local t = client.focus and client.focus.first_tag or nil
         if t then
@@ -294,21 +293,46 @@ function keys.globalkeys(programs)
         -- pacmd set-card-profile 0 output:analog-stereo+input:analog-stereo
     end, {description = "Change audio device", group = "multimedia"}),
 
-    awful.key({}, "XF86AudioPlay", function() end, {
+    awful.key({}, "XF86AudioPlay", function()
+        awful.spawn("playerctl play-pause")
+    end, {
         description = "plays or pause current music player",
         group = "multimedia"
-    }), awful.key({}, "XF86AudioRaiseVolume", function()
-        awful.spawn("pamixer -i 5")
+    }), 
+
+    awful.key({}, "XF86AudioNext", function()
+        awful.spawn("playerctl next")
+    end, {
+        description = "plays next music",
+        group = "multimedia"
+    }), 
+
+    awful.key({}, "XF86AudioPrev", function()
+        awful.spawn("playerctl previous")
+    end, {
+        description = "plays previous music",
+        group = "multimedia"
+    }), 
+    
+    awful.key({}, "XF86AudioStop", function()
+        awful.spawn("playerctl stop")
+    end, {
+        description = "stops the music",
+        group = "multimedia"
+    }), 
+
+    awful.key({}, "XF86AudioRaiseVolume", function()
+        awful.spawn("amixer sset Master 5%+")
         awesome.emit_signal("volume_change")
     end, {description = "raise system volume", group = "multimedia"}),
 
     awful.key({}, "XF86AudioLowerVolume", function()
-        awful.spawn("pamixer -d 5")
+        awful.spawn("amixer sset Master 5%-")
         awesome.emit_signal("volume_change")
     end, {description = "lower system volume", group = "multimedia"}),
 
     awful.key({}, "XF86AudioMute", function()
-        awful.spawn("pamixer -t")
+        awful.spawn("amixer -D pulse set Master toggle")
         awesome.emit_signal("volume_change")
     end, {description = "mute system audio", group = "multimedia"}),
 
@@ -323,7 +347,8 @@ function keys.globalkeys(programs)
               {description = "reload awesome", group = "awesome"}),
     awful.key({modkey, "Shift"}, "q", awesome.quit,
               {description = "quit awesome", group = "awesome"}),
-
+    awful.key({modkey}, "b", function() awful.spawn(programs.browser) end,
+              {description = "opens an internet browser", group = "launcher"}),
     awful.key({modkey}, "t", function() awful.spawn(programs.terminal) end,
               {description = "open a terminal", group = "launcher"}),
     awful.key({modkey}, "Return", function() awful.spawn(programs.launcher) end,

@@ -1,7 +1,7 @@
 #!/bin/sh
 
 bkp_dotfiles(){
-    [ -d "$HOME/.config/awesome" ] && cp -uvr "$HOME/.config/awesome" .
+    [ -d "$HOME/.config/awesome" ] && rsync -av --exclude 'awesome-wm-widgets' "$HOME/.config/awesome" .
     [ -d "$HOME/.config/alacritty" ] && cp -uvr "$HOME/.config/alacritty" .
     [ -d "$HOME/.config/bspwm" ] && cp -uvr "$HOME/.config/bspwm" .
     [ -d "$HOME/.config/sxhkd" ] && cp -uvr "$HOME/.config/sxhkd" .
@@ -21,12 +21,8 @@ bkp_dotfiles(){
     [ -d "$HOME/.config/nnn" ] && cp -uvr "$HOME/.config/nnn" .
 }
 
-read -p 'Proceed with the backup?(y/n) ' out
-if [ $out == 'y' ]
-then  
-    bkp_dotfiles 
-    printf "**Vim needs vim-plug to runs properly its configuration file.**"
-fi
+bkp_dotfiles 
+printf "**Vim needs vim-plug to runs properly its configuration file.**"
 
 unset out
 unset bkp_dotfiles

@@ -1,5 +1,16 @@
 pcall(require, "luarocks.loader")
 
+-- PROGRAMS NEEDED TO RUN PROPERLY MY WITH MY CONFIGS
+-- numlockx
+-- pulsemixer
+-- pavucontrol
+-- playerctl
+-- xclip
+-- maim
+-- xfce4-screenshooter
+-- ibus
+-- i3lock
+
 local gears = require("gears")
 local awful = require("awful")
 require("awful.autofocus")
@@ -13,9 +24,11 @@ local create_rules = require("rules").create
 local keys = require("keys")
 
 -- Widgets
-local logout_menu_widget = require("widgets/logout-menu-widget.logout-menu")
 local systats = require("widgets/systats-widget/systats")
-local calendar_widget = require("widgets/calendar-widget.calendar")
+local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout-menu")
+local volume_widget = require('awesome-wm-widgets.volume-widget.volume')
+
+local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
 local cw =
     calendar_widget({theme = 'dark', placement = 'top_right', radius = 8})
 
@@ -56,8 +69,9 @@ local sp = beautiful.screen_padding
 
 local programs = {
     terminal = "alacritty",
-    filemanager = "thunar",
-    calculator = "speedcrunch",
+    filemanager = "nautilus",
+    calculator = "gnome-calculator",
+    browser = "google-chrome",
     launcher = "dmenu_run"
 }
 
@@ -236,6 +250,7 @@ awful.screen.connect_for_each_screen(function(s)
     s.mywibox:setup{
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
+            s.mylayoutbox,
             layout = wibox.layout.fixed.horizontal,
             s.mytaglist,
             s.mypromptbox
@@ -245,9 +260,12 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
             separator,
             systray,
-            mykeyboardlayout,
             separator,
             systats,
+            separator,
+            volume_widget{
+                widget_type = 'icon_and_text'
+            },
             separator,
             mytextclock,
             separator,
@@ -255,8 +273,7 @@ awful.screen.connect_for_each_screen(function(s)
                 onlock = function()
                     awful.spawn.with_shell('i3lock -ub -c 000000')
                 end
-            },
-            s.mylayoutbox
+            }
         }
     }
 end)
@@ -298,3 +315,20 @@ client.connect_signal("unfocus",
 --- Lower nenory consumption
 collectgarbage("setpause", 110)
 collectgarbage("setstepmul", 1000)
+
+-- Startup commands/programs
+do
+    local cmds =
+    {
+        -- Set my mouse acceleration
+        "xinput --set-prop 'Logitech Gaming Mouse G402' 330 -0.8255",
+        -- applet for NetworkManager
+        "nm_applet",
+        "numlockx on"
+    }
+
+    for _,i in pairs(cmds) do
+        awful.util.spawn(i)
+    end
+end
+
