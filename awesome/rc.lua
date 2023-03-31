@@ -321,7 +321,7 @@ do
     local cmds =
     {
         -- Set my mouse acceleration
-        "xinput --set-prop 'Logitech Gaming Mouse G402' 330 -0.8255",
+        "xinput --set-prop 'Logitech Gaming Mouse G402' 'libinput Accel Speed' -0.8255",
         -- applet for NetworkManager
         "nm_applet",
         "numlockx on"

@@ -175,17 +175,32 @@ function keys.globalkeys(programs)
             local tag = client.focus.screen.tags[client.focus.first_tag.index - 1]
             if tag then 
                 client.focus:move_to_tag(tag) 
+                tag:view_only()
             end
         end
     end, {description = "move client to previous tag", group = "client"}),
+
     awful.key({modkey, "Shift"}, ".", function()
         if client.focus then
             local tag = client.focus.screen.tags[client.focus.first_tag.index + 1]
             if tag then 
                 client.focus:move_to_tag(tag) 
+                tag:view_only()
             end
         end
     end, {description = "move client to next tag", group = "client"}),
+
+    awful.key({modkey, "Control"}, ".", function()
+        if client.focus then
+            client.focus:move_to_screen() 
+        end
+    end, {description = "move client to next screen", group = "client"}),
+
+    awful.key({modkey, "Control"}, ",", function()
+        if client.focus then
+            client.focus:move_to_screen(client.focus.screen.index-1) 
+        end
+    end, {description = "move client to previous screen", group = "client"}),
 
     awful.key({modkey}, "Tab", function() 
         awful.menu.client_list({theme = {width = 250}}) 
@@ -393,7 +408,10 @@ function keys.globalkeys(programs)
                                          function()
             if client.focus then
                 local tag = client.focus.screen.tags[i]
-                if tag then client.focus:move_to_tag(tag) end
+                if tag then 
+                    client.focus:move_to_tag(tag)
+                    tag:view_only()
+                end
             end
         end, {description = "move focused client to tag #" .. i, group = "tag"}),
         -- Toggle tag on focused client.
