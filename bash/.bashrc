@@ -116,7 +116,7 @@ if ! shopt -oq posix; then
   fi
 fi
 . "$HOME/.cargo/env"
-
+source ~/.bash_completion/alacritty
 
 
 #Make Starship displays a nice window title
@@ -126,3 +126,4 @@ function set_win_title(){
 starship_precmd_user_func="set_win_title"
 eval "$(starship init bash)"
 
+pfetch

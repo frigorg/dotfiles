@@ -1,0 +1,31 @@
+import = ["/home/majortom/.config/alacritty/colors/jellybeans.toml"]
+
+[cursor]
+style = "Underline"
+
+[env]
+TERM = "alacritty"
+
+[font]
+size = 12
+
+[font.bold]
+family = "JetBrains Mono"
+style = "Bold"
+
+[font.italic]
+family = "JetBrains Mono"
+style = "Italic"
+
+[font.normal]
+family = "JetBrains Mono"
+style = "Regular"
+
+[font.offset]
+x = 1
+y = 1
+
+[[keyboard.bindings]]
+action = "SpawnNewInstance"
+key = "T"
+mods = "Control|Shift"

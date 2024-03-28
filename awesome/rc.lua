@@ -11,6 +11,10 @@ pcall(require, "luarocks.loader")
 -- ibus
 -- i3lock
 
+
+-- To set the position of the second monitor, use xrandr. Find the names of the monitor then use the "--left-of" parameter. E.g:
+-- >xrandr --output DP-1 --left-of HDMI-0
+
 local gears = require("gears")
 local awful = require("awful")
 require("awful.autofocus")
