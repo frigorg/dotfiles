@@ -40,7 +40,8 @@ let g:airline_theme='luna'
 nnoremap Y y$
 
 " Atalhos para gerenciamento de registradores
-" clipboard vai para o registrador + (padrão utilizado pelo vim)
+" clipboard vai para o registrador + 
+" OBS: precisa ter gvim instalado no sistema para habilitar o registrador +
 set clipboard=unnamedplus
 
 " Movimentos entre janelas com a tecla leader
