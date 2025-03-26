@@ -53,6 +53,10 @@ theme.screen_padding = { top = dpi(0),
                          bottom = dpi(0),
                          left = dpi(0),}
 
+theme.movement_offset = 10
+theme.floating_resize_amount = 20
+theme.tiling_resize_factor = 0.05
+
 -- theme.wibar_height = dpi(25)
 
 -- Generate taglist squares:
