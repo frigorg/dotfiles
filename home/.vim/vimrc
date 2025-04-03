@@ -65,6 +65,7 @@ set t_Co=256
 set t_ut=
 syntax enable
 colorscheme gruvbox
+:set bg=dark
 " colorscheme jellybeans
 
 " Mostrar as linhas de forma relativa e absoluta
