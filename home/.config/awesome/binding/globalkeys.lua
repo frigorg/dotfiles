@@ -230,6 +230,26 @@ function _M.get()
     awful.key({ modkey,           }, "Left", function() move_client(client.focus, "left") end,
               {description = "Move floating client to the left edge", group = "client"}),
 
+    -- ScreenShot
+    --   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+
+    -- awful.key({modkey}, "F11", function()
+    --     awful.spawn.with_shell(
+    --         "maim -us | xclip -selection clipboard -t image/png",
+    --         false)
+    -- end, {description = "take a screenshot to clipboard", group = "screen"}),
+    awful.key({modkey}, "F11", function()
+        awful.spawn(
+            "flameshot full"
+            )
+    end, {description = "opens screenshot app", group = "screen"}),
+    awful.key({modkey}, "F12", function()
+        awful.spawn(
+            -- "xfce4-screenshooter"
+            "flameshot gui"
+            )
+    end, {description = "opens screenshot app", group = "screen"}),
+
     --   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
     -- Multimediakeys
     awful.key({}, "XF86Tools", 

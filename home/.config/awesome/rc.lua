@@ -95,6 +95,7 @@ require("main.signals")
 
 
 -- {{{ Startup programs
+awful.util.spawn("numlockx on")
 for _,i in pairs(startup_programs) do
     -- check if the program is already running
     local s = string.format("ps -e | grep %s",i)
@@ -103,3 +104,5 @@ for _,i in pairs(startup_programs) do
     end
 end
 -- }}}
+
+awful.util.spawn("xrandr --output HDMI-0 --mode 1920x1080 --pos 1366x0 --rotate normal --output DP-1 --mode 1366x768 --pos 0x50 --left-of HDMI-0 --rotate normal")

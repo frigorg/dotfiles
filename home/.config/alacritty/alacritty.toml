@@ -1,4 +1,3 @@
-import = ["/home/majortom/.config/alacritty/colors/jellybeans.toml"]
 
 [cursor]
 style = "Underline"
@@ -29,3 +28,6 @@ y = 1
 action = "SpawnNewInstance"
 key = "T"
 mods = "Control|Shift"
+
+[general]
+import = ["/home/majortom/.config/alacritty/colors/jellybeans.toml"]

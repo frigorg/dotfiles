@@ -55,6 +55,9 @@ function _M.get(clientkeys, clientbuttons)
           "xpad",
           -- "Pavucontrol",
           -- "pavucontrol",
+          "feh",
+          "gnome-pomodoro",
+          "gnome-calculator",
           "kcalc"},
 
         -- Note that the name property shown in xprop might be set slightly after creation of the client

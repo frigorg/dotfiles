@@ -7,12 +7,11 @@ local home = os.getenv("HOME")
 local _M = {
   -- This is used later as the default terminal and editor to run.
   -- terminal = "xterm",
-  terminal = "konsole",
-  filemanager = "dolphin",
-  calculator = "kcalc",
-  -- calculator = "gnome-calculator",
+  terminal = "alacritty",
+  filemanager = "nautilus",
+  calculator = "gnome-calculator",
   browser = "google-chrome",
-  launcher = "krunner",
+  launcher = "rofi -show drun",
    
   -- Default modkey.
   -- Usually, Mod4 is the key with a logo between Control and Alt.

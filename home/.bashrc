@@ -124,3 +124,4 @@ starship_precmd_user_func="set_win_title"
 eval "$(starship init bash)"
 
 pfetch
+source ~/.bash_completion/alacritty

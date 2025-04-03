@@ -2,7 +2,9 @@
 local _M = {
     volume_control = "volumeicon",
     -- volume_control = "pasystray",
-    internet_applet = "nm-applet"
+    clipboard = "copyq",
+    internet_applet = "nm-applet",
+    themesettings = "xsettingsd"
 }
 
 return _M
