@@ -10,6 +10,7 @@ alias pm="pulsemixer" #Runs pulsemixer
 alias xo="xdg-open" #Opens a file using xdg-open
 alias tp="trash-put" #Uses the command from trash-cli to delete files
 alias rm="echo 'It is not a good practice to use rm command. Instead, use trash-cli to manage deleting operations'"
+alias vim="nvim"
 
 
 sd(){ #Asks for shutdown
