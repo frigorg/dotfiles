@@ -125,3 +125,4 @@ eval "$(starship init bash)"
 
 pfetch
 source ~/.bash_completion/alacritty
+export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
