@@ -29,6 +29,7 @@ return {
       -- list of servers for mason to install
       ensure_installed = {
         "jdtls",
+        "ts_ls",
         "lua_ls",
         "html",
         "cssls",
